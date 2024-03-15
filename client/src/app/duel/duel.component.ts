@@ -1,11 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/user.service';
 
-
 interface User {
-
+  username: string,
+  name: string, 
+  location: string,
+  titles: string[],
+  favLanguage: string,
+  totalStars: number,
+  highestStarCount: number,
+  publicRepos: number,
+  perfectRepos: number,
+  followers: number,
+  following: number,
+  bio: string,
+  avatarUrl: string
 }
-
 
 @Component({
   selector: 'app-duel',
@@ -15,8 +25,8 @@ interface User {
 export class DuelComponent implements OnInit {
   usernameOne: string = ""
   usernameTwo: string = ""
-  users: any[] = []
-
+  users: User[] = []
+  winner: string = ""
 
   constructor(private userService: UserService) { }
 
@@ -31,13 +41,27 @@ export class DuelComponent implements OnInit {
     this.usernameTwo = valueEmitted;
   }
 
+
   async onSubmit() {
 
     try {
       const dualData = await this.userService.duelUsers(this.usernameOne, this.usernameTwo);
       if (Array.isArray(dualData)) {
-      // Assuming dualData is an array of User objects
+      // dualData is an array of User objects
       this.users = dualData;
+
+      // determining the winner based on # of public repos
+      const userOne = dualData.find(user => user.username === this.usernameOne);
+      const userTwo = dualData.find(user => user.username === this.usernameTwo);
+
+      if ((userOne['public-repos']) > userTwo['public-repos']) {
+        this.winner = userOne.username;
+      } else if ((userTwo['public-repos']) > userOne['public-repos']) {
+        this.winner = userTwo.username;
+      } else {
+        console.log("It's a tie!")
+      }
+
     } else {
       console.error("Invalid data received from server:", dualData);
     }
@@ -45,13 +69,7 @@ export class DuelComponent implements OnInit {
     console.error("Error fetching duel data:", error);
   }
 
-  console.log(this.users[0])
 
   }
 
-
-  // async onSubmit() {
-  //   const dualData = await this.userService.duelUsers(this.usernameOne, this.usernameTwo);
-  //   this.users = dualData;
-  // }
 }

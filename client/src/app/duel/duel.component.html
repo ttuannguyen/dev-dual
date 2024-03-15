@@ -18,4 +18,10 @@
   <br />
   <br />
   <button class="submit-button" (click)="onSubmit()">Duel</button>
+  <br />
+  <br />
+  <app-card 
+    *ngFor="let user of users"
+    [userData]="user"
+  ></app-card>
 </div>

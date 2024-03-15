@@ -2,7 +2,7 @@
     <p>username: {{ userData.username }}</p>
     <p>name: {{ userData.name }}</p>
     <p>location: {{ userData.location }}</p>
-    <p>titles: {{ userData.titles }}</p>
+    <p>titles: {{ userData.titles.join(', ') }}</p>
     <p>fav language: {{ userData['favorite-language'] }}</p>
     <p>total stars: {{ userData['total-stars'] }}</p>
     <p>highest star count: {{ userData['highest-starred'] }}</p>
