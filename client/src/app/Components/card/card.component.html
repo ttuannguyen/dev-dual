@@ -1,13 +1,24 @@
-<div *ngIf="userData">
-    <p>username: {{ userData.username }}</p>
-    <p>name: {{ userData.name }}</p>
-    <p>location: {{ userData.location }}</p>
-    <p>titles: {{ userData.titles.join(', ') }}</p>
-    <p>fav language: {{ userData['favorite-language'] }}</p>
-    <p>total stars: {{ userData['total-stars'] }}</p>
-    <p>highest star count: {{ userData['highest-starred'] }}</p>
-    <p>public repos: {{ userData['public-repos'] }}</p>
-    <p>perfect repos: {{ userData['perfect-repos'] }}</p>
-    <p>followers: {{ userData.followers }}</p>
-    <p>following: {{ userData.following }}</p>
+
+<div class="card">
+    <!-- <p *ngIf="winner">The winner is: {{ winner }}</p> -->
+    <div *ngIf="userData" class="user-details">
+        <div class="left-column">
+            <img class='image' [src]="userData.avatar_url" />
+            <p>{{ userData.bio }}</p>
+        </div>
+        <div class="right-column">
+            <p>username: {{ userData.username }}</p>
+            <p>name: {{ userData.name }}</p>
+            <p>location: {{ userData.location }}</p>
+            <p>titles: {{ userData.titles.join(', ') }}</p>
+            <p>fav language: {{ userData['favorite-language'] }}</p>
+            <p>total stars: {{ userData['total-stars'] }}</p>
+            <p>highest star count: {{ userData['highest-starred'] }}</p>
+            <p>public repos: {{ userData['public-repos'] }}</p>
+            <p>perfect repos: {{ userData['perfect-repos'] }}</p>
+            <p>followers: {{ userData.followers }}</p>
+            <p>following: {{ userData.following }}</p>
+        </div>
+    </div>
 </div>
+

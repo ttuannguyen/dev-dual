@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20vh;
+    margin-top: 5vh;
   "
 >
   <div style="display: flex; flex-direction: row">
@@ -20,8 +20,15 @@
   <button class="submit-button" (click)="onSubmit()">Duel</button>
   <br />
   <br />
-  <app-card 
-    *ngFor="let user of users"
-    [userData]="user"
-  ></app-card>
+  <p *ngIf="winner">The winner is: {{ winner }}</p>
+  <div style="display: flex; flex-direction: row;">
+    <ng-container *ngFor="let user of users">
+      <app-card class="card-wrapper"
+        [winner]="winner"
+        [userData]="user"
+      ></app-card>
+    </ng-container>
+    
+  </div>
+  
 </div>

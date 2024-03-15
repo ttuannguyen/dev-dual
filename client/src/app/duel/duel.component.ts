@@ -6,15 +6,15 @@ interface User {
   name: string, 
   location: string,
   titles: string[],
-  favLanguage: string,
-  totalStars: number,
-  highestStarCount: number,
-  publicRepos: number,
-  perfectRepos: number,
+  'favorite-language': string,
+  'total-stars': number,
+  'highest-starred': number,
+  'public-repos': number,
+  'perfect-repos': number,
   followers: number,
   following: number,
   bio: string,
-  avatarUrl: string
+  avatar_url: string
 }
 
 @Component({
@@ -41,6 +41,9 @@ export class DuelComponent implements OnInit {
     this.usernameTwo = valueEmitted;
   }
 
+  // determineWinner(dualData: User[]) {
+  // }
+
 
   async onSubmit() {
 
@@ -54,10 +57,13 @@ export class DuelComponent implements OnInit {
       const userOne = dualData.find(user => user.username === this.usernameOne);
       const userTwo = dualData.find(user => user.username === this.usernameTwo);
 
+
       if ((userOne['public-repos']) > userTwo['public-repos']) {
         this.winner = userOne.username;
+        console.log(this.winner);
       } else if ((userTwo['public-repos']) > userOne['public-repos']) {
         this.winner = userTwo.username;
+        console.log(this.winner);
       } else {
         console.log("It's a tie!")
       }
