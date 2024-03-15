@@ -4,10 +4,11 @@ import { DuelComponent } from './duel/duel.component';
 import { HomeComponent } from './home/home.component';
 import { InspectComponent } from './inspect/inspect.component';
 
+
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "inspect", component: InspectComponent },
-  { path: "duel", component: DuelComponent}
+  { path: "duel", component: DuelComponent},
 ];
 
 @NgModule({

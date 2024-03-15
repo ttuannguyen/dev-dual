@@ -9,7 +9,7 @@ import { UserService } from 'src/user.service';
 export class InspectComponent implements OnInit {
 
   username: string = ""
-
+  userData: any
 
   constructor(private userService: UserService) { }
 
@@ -20,10 +20,9 @@ export class InspectComponent implements OnInit {
     this.username = valueEmitted;
   }
 
-  onSubmit() {
-    this.userService.inspectUser(this.username);
+  async onSubmit() {
+    this.userData = await this.userService.inspectUser(this.username); // binding the userData property to the returned result
+    console.log(this.username);
   }
-
-
 
 }
