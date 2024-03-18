@@ -46,3 +46,19 @@
     object-fit: cover; /* prevent image distortion */
     margin-bottom: 10px; /* add spacing between the image and bio */
 }
+
+.data-card {
+    display: flex;
+}
+
+.data-label {
+    display: inline-block;
+    border: 1px solid #000000;
+    align-items: center;
+}
+
+.data-text {
+    display: inline-block;
+    align-items: center;
+    margin-left: 10px;
+}

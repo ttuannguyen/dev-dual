@@ -21,13 +21,18 @@
   <br />
   <br />
   <p *ngIf="errorMessage">{{ errorMessage }}</p>
-  <p *ngIf="winner">The winner is: {{ winner }}</p>
+  <p *ngIf="winner === 'It\'s a tie!' ">{{ winner }}</p>
   <div style="display: flex; flex-direction: row;">
     <ng-container *ngFor="let user of users">
-      <app-card class="card-wrapper"
-        [winner]="winner"
-        [userData]="user"
-      ></app-card>
+      <div class="result-container">
+        <div *ngIf="user.username === winner">
+          <p>WINNER!!!</p>
+        </div>
+        <app-card class="card-wrapper"
+          [winner]="winner"
+          [userData]="user"
+        ></app-card>
+      </div>
     </ng-container>
     
   </div>

@@ -65,7 +65,7 @@ export class DuelComponent implements OnInit {
         this.winner = userTwo.username;
         console.log(this.winner);
       } else {
-        console.log("It's a tie!")
+        this.winner = "It's a tie!"
       }
 
     } else {

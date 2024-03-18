@@ -7,17 +7,46 @@
             <p>{{ userData.bio }}</p>
         </div>
         <div class="right-column">
-            <p>username: {{ userData.username }}</p>
-            <p>name: {{ userData.name }}</p>
-            <p>location: {{ userData.location }}</p>
-            <p>titles: {{ userData.titles.join(', ') }}</p>
-            <p>fav language: {{ userData['favorite-language'] }}</p>
-            <p>total stars: {{ userData['total-stars'] }}</p>
-            <p>highest star count: {{ userData['highest-starred'] }}</p>
-            <p>public repos: {{ userData['public-repos'] }}</p>
-            <p>perfect repos: {{ userData['perfect-repos'] }}</p>
-            <p>followers: {{ userData.followers }}</p>
-            <p>following: {{ userData.following }}</p>
+            <div class="data-card">
+                <p class="data-label">username </p>
+                <p class="data-text"> {{ userData.username }}</p>
+            </div>     
+            <div class="data-card">
+                <p class="data-label">location </p>
+                <p class="data-text"> {{ userData.location }}</p>
+            </div>     
+            <div class="data-card">
+                <p class="data-label">titles </p>
+                <p class="data-text"> {{ userData.titles.join(', ') }}</p>
+            </div>     
+            <div class="data-card">
+                <p class="data-label">fav language </p>
+                <p class="data-text"> {{ userData['favorite-language'] }}</p>
+            </div>     
+            <div class="data-card">
+                <p class="data-label">total stars </p>
+                <p class="data-text"> {{ userData['total-stars'] }}</p>
+            </div>     
+            <div class="data-card">
+                <p class="data-label">highest star count </p>
+                <p class="data-text"> {{ userData['highest-starred'] }}</p>
+            </div>     
+            <div class="data-card">
+                <p class="data-label">public repos </p>
+                <p class="data-text"> {{ userData['public-repos'] }}</p>
+            </div>     
+            <div class="data-card">
+                <p class="data-label">perfect repos </p>
+                <p class="data-text"> {{ userData['perfect-repos'] }}</p>
+            </div>     
+            <div class="data-card">
+                <p class="data-label">followers </p>
+                <p class="data-text"> {{ userData.followers }}</p>
+            </div>     
+            <div class="data-card">
+                <p class="data-label">following </p>
+                <p class="data-text"> {{ userData.following }}</p>
+            </div>     
         </div>
     </div>
 </div>

@@ -12,3 +12,9 @@ border-radius: 15px;
 .card-wrapper {
   margin-right: 10px; /* Adjust spacing between the user cards */
 }
+
+.result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
