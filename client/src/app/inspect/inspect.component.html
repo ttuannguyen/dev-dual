@@ -12,10 +12,9 @@
   <button class="submit-button" (click)="onSubmit()">Inspect</button>
   <br />
   <br />
-  <app-card 
+  <p *ngIf="errorMessage">{{ errorMessage }}</p>
+  <app-card *ngIf="userData"
     [userData]="userData"
   ></app-card>
 
-  
-  
 </div>

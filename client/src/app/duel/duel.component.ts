@@ -27,6 +27,7 @@ export class DuelComponent implements OnInit {
   usernameTwo: string = ""
   users: User[] = []
   winner: string = ""
+  errorMessage: string = ""
 
   constructor(private userService: UserService) { }
 
@@ -57,7 +58,6 @@ export class DuelComponent implements OnInit {
       const userOne = dualData.find(user => user.username === this.usernameOne);
       const userTwo = dualData.find(user => user.username === this.usernameTwo);
 
-
       if ((userOne['public-repos']) > userTwo['public-repos']) {
         this.winner = userOne.username;
         console.log(this.winner);
@@ -72,9 +72,9 @@ export class DuelComponent implements OnInit {
       console.error("Invalid data received from server:", dualData);
     }
   } catch (error) {
-    console.error("Error fetching duel data:", error);
+    this.errorMessage = "Please ensure both usernames are provided and valid!"
+    console.error(error);
   }
-
 
   }
 

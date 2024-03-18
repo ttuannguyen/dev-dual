@@ -20,6 +20,7 @@
   <button class="submit-button" (click)="onSubmit()">Duel</button>
   <br />
   <br />
+  <p *ngIf="errorMessage">{{ errorMessage }}</p>
   <p *ngIf="winner">The winner is: {{ winner }}</p>
   <div style="display: flex; flex-direction: row;">
     <ng-container *ngFor="let user of users">
